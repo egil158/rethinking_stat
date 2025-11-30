@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="Rethinking Statistics and Causality: Why Mechanisms Cannot Be Inferred from Data Distributions">
+  <meta name="keywords"
+    content="Statistics, Machine Learning, Represetation Learning, Causal Inference, Mindreading, Power, Status">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rethinking Statistics and Causality: Why Mechanisms Cannot Be Inferred from Data Distributions</title>
+
+  <!-- Open Graph for LinkedIn/Facebook -->
+  <meta property="og:title"
+    content="Rethinking Statistics and Causality: Why Mechanisms Cannot Be Inferred from Data Distributions">
+  <meta property="og:description"
+    content="Full paper, key figures, and interactive framework reframing social cognition as status recognition and power navigation.">
+  <meta property="og:image" content="https://egil158.github.io/social_cog/static/images/ToM.png">
+  <meta property="og:url" content="https://egil158.github.io/social_cog/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title"
+    content="Rethinking Statistics and Causality: Why Mechanisms Cannot Be Inferred from Data Distributions">
+  <meta name="twitter:description"
+    content="Full paper, key figures, and interactive framework reframing social cognition as status recognition and power navigation.">
+  <meta name="twitter:image" content="https://egil158.github.io/social_cog/static/images/ToM.png">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+  <!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div> 
+    </div> -->
+
+  </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">Rethinking Statistics and Causality: Why Mechanisms Cannot Be
+              Inferred from Data Distributions</h1>
+
+            <!-- <h2 class="subtitle is-4 has-text-grey">
+              Survey Paper
+            </h2> -->
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://egil158.github.io/" target="_blank" rel="noopener noreferrer">Egil Diau</a>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>National Taiwan University</span>
+              <!-- <span class="author-block"><sup>2</sup>Google Research</span> -->
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="./static/pdf/Rethinking_Statistics.pdf"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://zenodo.org/records/17633314"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>Zenodo</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+                <!-- Code Link. -->
+                <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+                <!-- Dataset Link. -->
+                <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video> -->
+        <img src="./static/images/main.png" alt="Project teaser"
+          style="width: 400px; height: 400px; object-fit: cover; border-radius: 24px; display: block; margin: 0 auto 2rem;">
+        <h2 class="subtitle has-text-centered">
+          <span style="font-weight: 900; font-size: 1.1em; letter-spacing: 0.5px;">TL/DR:</span>
+          &nbsp; Persistent failures of statistical and causal inference to match real-world
+          behavior across disciplines reveal a deeper limitation: mechanisms cannot be
+          recovered from data distributions. These mismatches motivate a revisit of both
+          paradigms, showing that statistical inference collapses into geometric
+          alignment, while causal inference extends the same error by conflating
+          probability with causality.
+        </h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container">
+
+        <div class="columns is-centered is-variable is-6">
+
+          <!-- Card 1: Psychology -->
+          <div class="column has-text-centered">
+            <img src="./static/images/psy.png" alt="Psychology Mismatch"
+              style="width: 100%; max-width: 300px; border-radius: 12px; margin-bottom: 1rem;">
+            <p><strong>Psychology: Low Effects, Fragile Replication</strong><br>
+              Across psychology, average effects hover around ~0.3 and fail to replicate at
+              scale. The field remains fragmented because statistical significance consistently
+              fails to translate into stable, real-world behavior.
+            </p>
+          </div>
+
+          <!-- Card 2: Economics -->
+          <div class="column has-text-centered">
+            <img src="./static/images/econ.png" alt="Economics Mismatch"
+              style="width: 100%; max-width: 300px; border-radius: 12px; margin-bottom: 1rem;">
+            <p><strong>Economics: Wrong Origins, Unrealistic Agents</strong><br>
+              Economics inherits a false origin story—exchange emerges from reciprocity, not
+              barter—and relies on agent models (selfish, rational) that fail in real human
+              behavior. Yet the discipline continues producing theories that appear mathematically
+              rigorous, but are built on the wrong mechanisms.
+            </p>
+          </div>
+
+          <!-- Card 3: Biomedicine / Neuroscience -->
+          <div class="column has-text-centered">
+            <img src="./static/images/med.png" alt="Biomedicine Mismatch"
+              style="width: 100%; max-width: 300px; border-radius: 12px; margin-bottom: 1rem;">
+            <p><strong>Biomedicine & Neuroscience: Significance Without Mechanism</strong><br>
+              Biomedicine triggered the first replication crisis, and cognitive neuroscience
+              shows correlations so low that many results fail to replicate across studies.
+              Statistical patterns rarely translate into reliable biological mechanisms.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container is-max-desktop">
+
+      <!-- Abstract -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Why Statistics &amp; Causal Inference Need Rethinking</h2>
+          <div class="content has-text-justified">
+
+            <p>
+              Across psychology, neuroscience, and applied economics, many findings fail to replicate or disappear
+              outside the
+              lab. Even without fraud, statistically “significant” effects often fail to match real-world behavior.
+              These
+              breakdowns are not discipline-specific—they reflect a deeper mismatch between how real systems generate
+              phenomena and how statistical inference interprets the data left behind.
+            </p>
+
+            <p>
+              In practice, statistics and causal inference operate entirely within data space. But data are already a
+              compressed projection of a much higher-dimensional world; most semantic structure is lost before analysis
+              even
+              begins. Once mechanisms are removed in this projection, no amount of geometry or factorization applied to
+              the
+              remaining traces can reconstruct how the system actually works.
+            </p>
+
+            <p>
+              Many failures stem from two assumptions: that alignment in data space reflects structure in the underlying
+              system, and that probabilistic factorizations reveal the process that generated the outcomes. Yet these
+              tools
+              operate in a domain where the mechanism is no longer present, which is why they break even when used
+              correctly.
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+      <section class="section">
+        <div class="container">
+          <div class="has-text-centered">
+            <h2 class="title is-3 mb-2">The Two Roots of the Error</h2>
+            <div class="underline mx-auto"></div>
+            <p class="subtitle is-6 has-text-grey mt-3">
+              Two foundational mistakes that pushed statistics and causal inference off course.
+            </p>
+          </div>
+
+          <div class="columns is-variable is-6 is-multiline mt-6 equalize">
+
+            <!-- 1. Mechanism Not Specified -->
+            <div class="column is-half-tablet is-half-desktop">
+              <div class="box def-card is-tom">
+                <header class="card-head mb-3">
+                  <div class="head-left">
+                    <span class="def-icon">🧭</span>
+                    <h3 class="title is-4 mb-0">No Generative Mechanism</h3>
+                  </div>
+                  <button class="button is-light is-small copy-btn"
+                    data-copy="Many fields lacked explicit generative mechanisms. Without a clear account of how observations are produced, inference had no anchor—leaving data-space patterns to substitute for missing structure.">
+                    Copy
+                  </button>
+                </header>
+                <div class="content flex-1">
+                  Many fields never had a generative mechanism.
+                  With no account of how observations arise, inference collapsed into
+                  <strong>geometry and statistics</strong>—treating data-space patterns as if they
+                  revealed real structure, even though they cannot.
+                </div>
+                <p class="tag is-light mt-3 stick-bottom">No mechanism → no grounding</p>
+              </div>
+            </div>
+
+            <!-- 2. Minimal Data → Broad Conclusions -->
+            <div class="column is-half-tablet is-half-desktop">
+              <div class="box def-card is-tom">
+                <header class="card-head mb-3">
+                  <div class="head-left">
+                    <span class="def-icon">📉</span>
+                    <h3 class="title is-4 mb-0">Minimal Data, Big Conclusions</h3>
+                  </div>
+                  <button class="button is-light is-small copy-btn"
+                    data-copy="Researchers drew conclusions about complex systems from small, sparse, or convenience samples. Limited data were treated as if they could reveal the structure of the world.">
+                    Copy
+                  </button>
+                </header>
+                <div class="content flex-1">
+                  Many fields relied on minimal data.
+                  With only small, sparse, convenience samples, inference collapsed into
+                  <strong>geometric patterns</strong>—treating limited observations as if they
+                  captured the structure of the world, even though they do not.
+                </div>
+                <p class="tag is-light mt-3 stick-bottom">Sparse data ≠ world structure</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section">
+        <div class="container">
+          <div class="has-text-centered">
+            <h2 class="title is-3 mb-2">The Three Foundational Failures of Statistical Inference</h2>
+            <div class="underline mx-auto"></div>
+            <p class="subtitle is-6 has-text-grey mt-3">
+              Sampling, correlation, and conditioning fail for the same structural reason:
+              they operate on low-dimensional shadows, not on the generative system itself.
+            </p>
+          </div>
+
+          <div class="columns is-variable is-6 is-multiline mt-6 equalize">
+
+
+            <!-- Sampling -->
+            <div class="column is-full">
+              <div class="box def-card">
+                <header class="card-head mb-3">
+                  <div class="head-left">
+                    <span class="def-icon">🎯</span>
+                    <h3 class="title is-4 mb-0">Sampling Assumes the Wrong World</h3>
+                  </div>
+                  <button class="button is-light is-small copy-btn"
+                    data-copy="Statistics assumes observations come from a fixed distribution. But real data are low-dimensional projections of a richer generative system. A distribution is only the shadow—never the source.">
+                    Copy
+                  </button>
+                </header>
+                <div class="content flex-1">
+                  Statistics assumes observations come from a <strong>fixed distribution</strong>.
+                  But real-world data are <strong>low-dimensional projections</strong>
+                  of a high-dimensional generative process.
+                  A “distribution” is only the <strong>shadow</strong>, never the source.
+                </div>
+                <p class="tag is-light mt-3 stick-bottom">Projection ≠ generative process</p>
+              </div>
+            </div>
+
+
+            <!-- Correlation -->
+            <div class="column is-full">
+              <div class="box def-card">
+                <header class="card-head mb-3">
+                  <div class="head-left">
+                    <span class="def-icon">📐</span>
+                    <h3 class="title is-4 mb-0">Correlation Mistakes Geometry for Mechanism</h3>
+                  </div>
+                  <button class="button is-light is-small copy-btn"
+                    data-copy="Correlation is the cosine between centered vectors—pure geometry. Across different semantic spaces the angle means nothing; within the same space it measures only surface similarity, never the mechanism that produced the data.">
+                    Copy
+                  </button>
+                </header>
+                <div class="content flex-1">
+                  Correlation is the <strong>cosine between centered vectors</strong>—pure geometry.
+                  Across <strong>different spaces</strong>, this angle has <strong>no meaning at all</strong>.
+                  Even within the same space, it measures only <strong>surface similarity</strong>,
+                  never the <strong>mechanism that produced the data</strong>.
+                </div>
+                <p class="tag is-light mt-3 stick-bottom">Geometry ≠ structure</p>
+              </div>
+            </div>
+
+
+            <!-- Conditioning -->
+            <div class="column is-full">
+              <div class="box def-card is-summary">
+                <header class="card-head mb-3">
+                  <div class="head-left">
+                    <span class="def-icon">➗</span>
+                    <h3 class="title is-4 mb-0">Conditioning Has No Set-Level Meaning</h3>
+                  </div>
+                  <button class="button is-light is-small copy-btn"
+                    data-copy="No set operation corresponds to probability division. Without event-level meaning, a conditional has no semantics of ‘given’. Probability is not closed under division—Bayes’ rule inherits this illegality and cannot represent belief or update.">
+                    Copy
+                  </button>
+                </header>
+
+                <div class="content flex-1">
+                  Conditioning is <strong>probability division</strong>.
+                  But division has <strong>no corresponding set operation</strong>,
+                  so a conditional has <strong>no event-level meaning</strong> of “given”.
+                  <strong>Also</strong>, probability is <strong>not closed under division</strong>.
+                  <strong>Therefore</strong>, Bayes’ theorem inherits this illegality —
+                  its “update” cannot represent <strong>information, belief, or any generative mechanism</strong>.
+                </div>
+
+                <p class="tag is-light mt-3 stick-bottom">No set → no semantics → no update</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+
+      <style>
+        /* underline (optional)
+  .underline {
+    width: 120px; height: 3px; border-radius: 999px;
+    background: linear-gradient(90deg, #6c63ff, #2ac3ff);
+  } */
+
+        /* 讓四張卡等高 */
+        .equalize .column {
+          display: flex;
+        }
+
+        .equalize .def-card {
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          border: 1px solid rgba(0, 0, 0, .08);
+          transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+        }
+
+        .equalize .def-card:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 24px rgba(0, 0, 0, .08);
+          border-color: rgba(0, 0, 0, .12);
+        }
+
+        /* 頭部左右區塊：維持等高需要固定最小高度，避免標題長短導致跳動 */
+        .card-head {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          min-height: 48px;
+        }
+
+        .head-left {
+          display: inline-flex;
+          align-items: center;
+          gap: .65rem;
+        }
+
+        .def-card .def-icon {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+          font-size: 18px;
+          background: rgba(108, 99, 255, .10);
+        }
+
+        .def-card.is-summary .def-icon {
+          background: rgba(255, 196, 0, .12);
+        }
+
+        /* 內容撐開，tag 釘底 */
+        .flex-1 {
+          flex: 1;
+        }
+
+        .stick-bottom {
+          margin-top: auto;
+        }
+
+        /* 深色模式 */
+        @media (prefers-color-scheme: dark) {
+          .underline {
+            background: linear-gradient(90deg, #9aa5ff, #7dd3fc);
+          }
+
+          .def-card {
+            border-color: rgba(255, 255, 255, .08);
+          }
+
+          .def-card:hover {
+            border-color: rgba(255, 255, 255, .16);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .5);
+          }
+
+          .box.def-card {
+            background: rgba(255, 255, 255, .03);
+          }
+        }
+      </style>
+
+      <script>
+        // Minimal copy handler
+        document.addEventListener('click', (e) => {
+          const btn = e.target.closest('.copy-btn');
+          if (!btn) return;
+          const text = btn.getAttribute('data-copy') || '';
+          navigator.clipboard.writeText(text).then(() => {
+            const original = btn.textContent.trim();
+            btn.textContent = 'Copied!';
+            setTimeout(() => (btn.textContent = original), 1200);
+          });
+        });
+      </script>
+
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Statistical and causal inference have become universal currencies of explanation across the sciences,
+              particularly in domains where underlying mechanisms remain opaque. Their apparent rigor—spanning
+              psychology, economics and biomedicine—rests on the assumption that patterns within data can reveal the
+              processes that generate them. Yet persistent mismatches between empirical predictions and real-world
+              behaviour expose a deeper limitation: mechanisms cannot be inferred from data distributions alone.
+            </p>
+            <p>
+              To
+              address this limitation, we revisit the foundations of both paradigms, showing how statistical inference
+              reduces explanation to geometric alignment, while causal inference, evolved from Bayes’ theorem and
+              graphical models, extends this misstep by conflating probabilistic structure with causal truth. Both
+              expose the same epistemic gap: data encode a lower-dimensional projection of structure, not the mechanism
+              that generates it.
+            </p>
+            <p>
+              We argue that understanding the world follows two routes: one is data-driven, expanding
+              models toward richer function classes to achieve high-precision prediction, as exemplified by modern deep
+              learning; the other is mechanism-driven, proposing and testing structural hypotheses as in the physical
+              sciences. A robust framework requires both: data-driven models for high-precision prediction, and
+              mechanistic models for reconstructing how the world produces the data we observe.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Why It Matters?</h2>
+          <div class="content has-text-justified">
+
+            <p>
+              These failures do not stay inside statistics. They propagate across every discipline
+              that relies on data-space reasoning. Psychology, neuroscience, political science, and
+              applied economics routinely draw conclusions from patterns that could never reveal
+              <strong>how the system actually works</strong>. Entire literatures grow around correlations,
+              regressions, and conditional probabilities whose quantities have <strong>no mechanism-level
+                meaning</strong>.
+            </p>
+
+            <p>
+              Causal inference amplifies the problem. Its algebra multiplies probabilities into
+              <strong>joint events that do not exist</strong> in real systems. Because observed variables
+              are <strong>low-dimensional projections</strong> of a richer generative world, the true
+              joint distribution is <strong>undefined</strong>—yet causal formulas fabricate it through
+              factorization. The machinery operates on objects that have <strong>no semantic or
+                generative counterpart</strong> in reality.
+            </p>
+
+            <p>
+              Machine learning and statistical learning theory inherit the same statistical ontology, but
+              their actual behavior no longer matches their notation. Quantities like likelihoods, expected
+              risk, factorizations, and losses survive as <strong>syntactic artifacts</strong>, even though
+              the true system has no mechanism that corresponds to them. Models work through optimization
+              heuristics and implementation patches, not through the semantics their formulas suggest.
+              What runs in practice is <strong>not what the notation claims</strong>.
+            </p>
+
+            <p>
+              That is why the foundation must be rebuilt. As long as inference is performed in data space,
+              every downstream field will continue scaling the same structural error — operating on
+              quantities that do not correspond to the systems they aim to explain.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Cite This Work</h2>
+
+          <div class="box cite-box has-text-left">
+            <button class="button is-primary is-light is-rounded is-small cite-copy" data-target="cite-zenodo">
+              📋 Copy
+            </button>
+
+            <pre id="cite-zenodo"><code>@misc{diau_2025_17633314,
+  author       = {Diau, Egil},
+  title        = {Rethinking Statistics and Causality: Why
+                   Mechanisms Cannot Be Inferred from Data
+                   Distributions
+                  },
+  month        = nov,
+  year         = 2025,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.17633314},
+  url          = {https://doi.org/10.5281/zenodo.17633314},
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <style>
+        :root {
+          --cite-bg: #f7f7f9;
+          --cite-border: #e6e6ea;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          :root {
+            --cite-bg: #1f1f24;
+            --cite-border: #32323a;
+          }
+        }
+
+        .cite-box {
+          position: relative;
+          background: var(--cite-bg);
+          border: 1px solid var(--cite-border);
+          border-radius: 12px;
+          padding: 1.25rem 1.25rem 1rem;
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+          text-align: left;
+        }
+
+        .cite-box .cite-copy {
+          position: absolute;
+          top: .75rem;
+          right: .75rem;
+        }
+
+        .cite-box pre {
+          margin: 0;
+          padding: .5rem 0 0 0;
+          white-space: pre;
+          overflow-x: auto;
+          font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+          font-size: 0.95rem;
+          line-height: 1.55;
+        }
+
+        .cite-box pre code {
+          background: transparent !important;
+        }
+      </style>
+
+      <script>
+        function copyBib(btn) {
+          const id = btn.getAttribute('data-target');
+          const el = document.getElementById(id);
+          const text = el ? el.innerText.trim() : '';
+          if (!text) return;
+
+          navigator.clipboard.writeText(text).then(() => {
+            const old = btn.innerHTML;
+            btn.innerHTML = "✅ Copied!";
+            btn.classList.remove("is-primary", "is-light");
+            btn.classList.add("is-success");
+            setTimeout(() => {
+              btn.innerHTML = old;
+              btn.classList.remove("is-success");
+              btn.classList.add("is-primary", "is-light");
+            }, 1500);
+          });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('.cite-copy').forEach(btn => {
+            btn.addEventListener('click', () => copyBib(btn));
+          });
+        });
+      </script>
+
+      <!-- <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Implications</h2>
+          <div class="content has-text-justified">
+            <p>
+              By grounding high-level social functions in observable cognitive behavior, this survey opens a path toward
+              modeling society from the bottom up—using mechanisms, not metaphors.
+            </p>
+            <p>
+              This approach dissolves the artificial boundaries between disciplines like psychology, anthropology,
+              political science, and economics. What were once treated as separate domains of “mind,” “culture,” or
+              “institutions” can now be understood as structured expressions of the same underlying cognitive functions.
+            </p>
+            <p>
+              Rather than studying society through detached abstractions, we can begin treating it as a compositional
+              system—one that emerges from shared behavioral capacities across species. This reframing lays the
+              groundwork for a unified science of social cognition, grounded not in speculation, but in mechanism.
+            </p>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Demo</h2>
+        <div class="publication-video">
+          <img src="./static/images/underconstruction.png" alt="Project teaser" style="width:100%; max-width:400px; border-radius: 8px;">
+        </div>
+      </div>
+    </div> -->
+
+    </div>
+
+
+
+
+  </section>
+
+
+
+
+
+
+
+  <!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+  <!-- <section class="section has-text-centered">
+    <h2 class="title is-4">Open to Feedback, Corrections, and Collaboration</h2>
+    <p>
+      This survey aims to reframe primate cognition as a functional foundation for understanding human behavior. While
+      every effort has been made to include key findings, some behavioral details may require correction or refinement.
+    </p>
+    <p>
+      If you work in primatology, comparative cognition, or related fields, I’d love to hear your thoughts—especially if
+      you're interested in contributing, clarifying specific cases, or extending this work.
+      Reach out via <a href="mailto:egil158@gmail.com">egil158@gmail.com</a>.
+    </p>
+  </section> -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div> -->
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered" style="font-size: 0.9rem; line-height: 1.6; margin-top: 1rem;">
+            <p>
+              Adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies template</a>. Licensed
+              under
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
