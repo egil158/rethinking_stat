@@ -136,7 +136,7 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://zenodo.org/records/19014532"
+                  <a href="https://zenodo.org/records/19506871"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -191,12 +191,11 @@
           style="width: 400px; height: 400px; object-fit: cover; border-radius: 24px; display: block; margin: 0 auto 2rem;">
         <h2 class="subtitle has-text-centered">
           <span style="font-weight: 900; font-size: 1.1em; letter-spacing: 0.5px;">TL/DR:</span>
-          &nbsp; Persistent failures of statistical and causal inference to match real-world
-          behavior across disciplines reveal a deeper limitation: mechanisms cannot be
-          recovered from data distributions. These mismatches motivate a revisit of both
-          paradigms, showing that statistical inference collapses into geometric
-          alignment, while causal inference extends the same error by conflating
-          probability with causality.
+          &nbsp; Persistent failures of statistical and causal inference to match real-world behavior are not merely
+          methodological, but structural: observed data distributions are projections that do not preserve the
+          properties of the underlying system. As a result, mechanisms are fundamentally non-identifiable from these
+          distributions. Statistical inference reduces to geometric alignment in projected space, and causal inference
+          extends the same mistake by treating probabilistic structure as causal structure.
         </h2>
       </div>
     </div>
@@ -210,35 +209,28 @@
 
           <!-- Card 1: Psychology -->
           <div class="column has-text-centered">
-            <img src="./static/images/psy.png" alt="Psychology Mismatch"
+            <img src="./static/images/project.png" alt="Psychology Mismatch"
               style="width: 100%; max-width: 300px; border-radius: 12px; margin-bottom: 1rem;">
-            <p><strong>Psychology: Low Effects, Fragile Replication</strong><br>
-              Across psychology, average effects hover around ~0.3 and fail to replicate at
-              scale. The field remains fragmented because statistical significance consistently
-              fails to translate into stable, real-world behavior.
+            <p><strong>Projection: Data Does Not Preserve Structure</strong><br>
+              Like a shadow of a 3D object—you can’t tell the shape from the shadow alone.
             </p>
           </div>
 
           <!-- Card 2: Economics -->
           <div class="column has-text-centered">
-            <img src="./static/images/econ.png" alt="Economics Mismatch"
+            <img src="./static/images/correlation.png" alt="Economics Mismatch"
               style="width: 100%; max-width: 300px; border-radius: 12px; margin-bottom: 1rem;">
-            <p><strong>Economics: Wrong Origins, Unrealistic Agents</strong><br>
-              Economics inherits a false origin story—exchange emerges from reciprocity, not
-              barter—and relies on agent models (selfish, rational) that fail in real human
-              behavior. Yet the discipline continues producing theories that appear mathematically
-              rigorous, but are built on the wrong mechanisms.
+            <p><strong>Geometry: Correlation Is Just an Angle</strong><br>
+              Two arrows can form the same angle—even if they come from completely different systems.
             </p>
           </div>
 
           <!-- Card 3: Biomedicine / Neuroscience -->
           <div class="column has-text-centered">
-            <img src="./static/images/med.png" alt="Biomedicine Mismatch"
+            <img src="./static/images/probability.png" alt="Biomedicine Mismatch"
               style="width: 100%; max-width: 300px; border-radius: 12px; margin-bottom: 1rem;">
-            <p><strong>Biomedicine & Neuroscience: Significance Without Mechanism</strong><br>
-              Biomedicine triggered the first replication crisis, and cognitive neuroscience
-              shows correlations so low that many results fail to replicate across studies.
-              Statistical patterns rarely translate into reliable biological mechanisms.
+            <p><strong>Probability: Structure Imposed by Mathematics</strong><br>
+              Just because numbers multiply doesn’t mean events do.
             </p>
           </div>
         </div>
@@ -266,12 +258,10 @@
             </p>
 
             <p>
-              In practice, statistics and causal inference operate entirely within data space. But data are already a
-              compressed projection of a much higher-dimensional world; most semantic structure is lost before analysis
-              even
-              begins. Once mechanisms are removed in this projection, no amount of geometry or factorization applied to
-              the
-              remaining traces can reconstruct how the system actually works.
+              In practice, statistics and causal inference operate entirely within data space.
+              But data are projections of a much higher-dimensional system, and such projections
+              do not preserve the original structure. Once mapped into data space, the properties
+              of the underlying system are no longer retained, and the mechanism is not present in the observations.
             </p>
 
             <p>
@@ -304,7 +294,7 @@
                 <header class="card-head mb-3">
                   <div class="head-left">
                     <span class="def-icon">🧭</span>
-                    <h3 class="title is-4 mb-0">No Generative Mechanism</h3>
+                    <h3 class="title is-4 mb-0">The underlying mechanisms were unknown</h3>
                   </div>
                   <button class="button is-light is-small copy-btn"
                     data-copy="Many fields lacked explicit generative mechanisms. Without a clear account of how observations are produced, inference had no anchor—leaving data-space patterns to substitute for missing structure.">
@@ -312,10 +302,10 @@
                   </button>
                 </header>
                 <div class="content flex-1">
-                  Many fields never had a generative mechanism.
-                  With no account of how observations arise, inference collapsed into
+                  Many fields did not know how the underlying system works.
+                  Without a clear understanding of the system, inference defaulted to
                   <strong>geometry and statistics</strong>—treating data-space patterns as if they
-                  revealed real structure, even though they cannot.
+                  revealed real structure, even though they do not.
                 </div>
                 <p class="tag is-light mt-3 stick-bottom">No mechanism → no grounding</p>
               </div>
@@ -352,96 +342,95 @@
       <section class="section">
         <div class="container">
           <div class="has-text-centered">
-            <h2 class="title is-3 mb-2">The Three Foundational Failures of Statistical Inference</h2>
+            <h2 class="title is-3 mb-2">Three Structural Mismatches</h2>
             <div class="underline mx-auto"></div>
             <p class="subtitle is-6 has-text-grey mt-3">
-              Sampling, correlation, and conditioning fail for the same structural reason:
-              they operate on low-dimensional shadows, not on the generative system itself.
+              Projection, geometry, and probability fail for the same reason:
+              they operate on representations that do not preserve the structure of the system.
             </p>
           </div>
 
           <div class="columns is-variable is-6 is-multiline mt-6 equalize">
 
-
-            <!-- Sampling -->
+            <!-- Projection -->
             <div class="column is-full">
               <div class="box def-card">
                 <header class="card-head mb-3">
                   <div class="head-left">
-                    <span class="def-icon">🎯</span>
-                    <h3 class="title is-4 mb-0">Sampling Assumes the Wrong World</h3>
+                    <span class="def-icon">🧭</span>
+                    <h3 class="title is-4 mb-0">Projection Does Not Preserve Structure</h3>
                   </div>
                   <button class="button is-light is-small copy-btn"
-                    data-copy="Statistics assumes observations come from a fixed distribution. But real data are low-dimensional projections of a richer generative system. A distribution is only the shadow—never the source.">
+                    data-copy="Observations are projections of a higher-dimensional system. Projection does not preserve the original properties, so the structure of the system is not retained in data space.">
                     Copy
                   </button>
                 </header>
+
                 <div class="content flex-1">
-                  Statistics assumes observations come from a <strong>fixed distribution</strong>.
-                  But real-world data are <strong>low-dimensional projections</strong>
-                  of a high-dimensional generative process.
-                  A “distribution” is only the <strong>shadow</strong>, never the source.
+                  Observations are <strong>projections</strong> of a higher-dimensional system.
+                  Projection does <strong>not preserve the original properties</strong>,
+                  so the structure of the system is <strong>not retained in data space</strong>.
+                  <strong>The mechanism is not in the observations.</strong>
                 </div>
-                <p class="tag is-light mt-3 stick-bottom">Projection ≠ generative process</p>
+
+                <p class="tag is-light mt-3 stick-bottom">A shadow is not the object</p>
               </div>
             </div>
 
-
-            <!-- Correlation -->
+            <!-- Geometry -->
             <div class="column is-full">
               <div class="box def-card">
                 <header class="card-head mb-3">
                   <div class="head-left">
                     <span class="def-icon">📐</span>
-                    <h3 class="title is-4 mb-0">Correlation Mistakes Geometry for Mechanism</h3>
+                    <h3 class="title is-4 mb-0">Correlation Is Just Geometry</h3>
                   </div>
                   <button class="button is-light is-small copy-btn"
-                    data-copy="Correlation is the cosine between centered vectors—pure geometry. Across different semantic spaces the angle means nothing; within the same space it measures only surface similarity, never the mechanism that produced the data.">
+                    data-copy="Correlation is the cosine between vectors—pure geometry. But geometric alignment only exists within a chosen data space, and does not reflect structure in the underlying system.">
                     Copy
                   </button>
                 </header>
+
                 <div class="content flex-1">
-                  Correlation is the <strong>cosine between centered vectors</strong>—pure geometry.
-                  Across <strong>different spaces</strong>, this angle has <strong>no meaning at all</strong>.
-                  Even within the same space, it measures only <strong>surface similarity</strong>,
-                  never the <strong>mechanism that produced the data</strong>.
+                  Correlation is the <strong>cosine between vectors</strong>—pure geometry.
+                  This alignment exists only within a <strong>chosen data space</strong>,
+                  and does not reflect the <strong>structure of the underlying system</strong>.
+                  <strong>Unrelated variables can appear aligned, while real relations can disappear.</strong>
                 </div>
-                <p class="tag is-light mt-3 stick-bottom">Geometry ≠ structure</p>
+
+                <p class="tag is-light mt-3 stick-bottom">Angle is not relationship</p>
               </div>
             </div>
 
-
-            <!-- Conditioning -->
+            <!-- Probability -->
             <div class="column is-full">
               <div class="box def-card is-summary">
                 <header class="card-head mb-3">
                   <div class="head-left">
                     <span class="def-icon">➗</span>
-                    <h3 class="title is-4 mb-0">Conditioning Has No Set-Level Meaning</h3>
+                    <h3 class="title is-4 mb-0">Probability Imposes Structure</h3>
                   </div>
                   <button class="button is-light is-small copy-btn"
-                    data-copy="No set operation corresponds to probability division. Without event-level meaning, a conditional has no semantics of ‘given’. Probability is not closed under division—Bayes’ rule inherits this illegality and cannot represent belief or update.">
+                    data-copy="Probabilistic operations such as multiplication and division impose algebraic structure on data. These operations do not necessarily correspond to real processes in the world, and conditioning lacks a clear set-level meaning.">
                     Copy
                   </button>
                 </header>
 
                 <div class="content flex-1">
-                  Conditioning is <strong>probability division</strong>.
-                  But division has <strong>no corresponding set operation</strong>,
-                  so a conditional has <strong>no event-level meaning</strong> of “given”.
-                  <strong>Also</strong>, probability is <strong>not closed under division</strong>.
-                  <strong>Therefore</strong>, Bayes’ theorem inherits this illegality —
-                  its “update” cannot represent <strong>information, belief, or any generative mechanism</strong>.
+                  Probabilistic operations—<strong>multiplication, division, conditioning</strong>—
+                  impose <strong>algebraic structure</strong> on data.
+                  These operations do not necessarily correspond to
+                  <strong>real processes in the world</strong>.
+                  <strong>There is no clear mapping from these operations to actual mechanisms.</strong>
                 </div>
 
-                <p class="tag is-light mt-3 stick-bottom">No set → no semantics → no update</p>
+                <p class="tag is-light mt-3 stick-bottom">No mapping to real-world events</p>
               </div>
             </div>
 
           </div>
         </div>
       </section>
-
 
 
       <style>
